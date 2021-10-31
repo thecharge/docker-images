@@ -44,7 +44,7 @@ jobs:
           context: $IMAGE_CONTEXT
           file: $IMAGE_DOCKERFILE
           push: ${{ github.ref == 'refs/heads/main' }}
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
+          tags: thecharge/alpine:3.13
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
