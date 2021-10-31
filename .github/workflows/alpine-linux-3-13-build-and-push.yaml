@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - 'base/alpine/3.13'
-      - '.github/workflows/build-and-push-base-images.yaml'
+      - './base/alpine/3.13'
+      - './.github/workflows/build-and-push-base-images.yaml'
 
 env:
   IMAGE: alpine
