@@ -4,14 +4,16 @@
 - The images archival and decomissioning of the updates will be on this page in dedicated section bellow 
 
 
-### Releases and EOL:
-Releases: https://alpinelinux.org/releases/
-Alpine linux 3.13 will be supported until 2022 Nov.
-Image EOL: TBD
+
 
 ## Images
 ### Alpine 3.13
 [![Build and push alpine base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-linux.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-linux.yaml)
+
+### Releases and EOL:
+Releases: https://alpinelinux.org/releases/
+Alpine linux 3.13 will be supported until 2022 Nov.
+Image EOL: TBD
 
 ### How to use this image
 Use like you would any other image:
