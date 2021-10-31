@@ -13,7 +13,9 @@
 
 ### Releases and EOL:
 Releases: https://alpinelinux.org/releases/
+
 Alpine linux 3.13 will be supported until 2022 Nov.
+
 Image EOL: TBD
 
 ### How to use this image
@@ -58,7 +60,9 @@ ENTRYPOINT ["mysql"]
 
 ### Releases and EOL:
 Releases: https://www.python.org/downloads/
+
 Python 3.10 will be supperted until 2026 Oct.
+
 Image EOL: TBD
 
 ### How to use this image
