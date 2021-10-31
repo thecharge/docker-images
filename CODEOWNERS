@@ -1,0 +1,4 @@
+# The last matching pattern has the most precedence, so the file goes from least
+# specific to most specific file path to assign code ownership.
+#
+*                          @thecharge

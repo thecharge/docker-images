@@ -1,0 +1,50 @@
+name: Build and push alpine base image
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'base/alpine/3.13'
+      - '.github/workflows/build-and-push-base-images.yaml'
+
+env:
+  IMAGE: alpine
+  IMAGE_FOLDER: /base/${IMAGE}
+  IMAGE_TAG_VERSION: 3.13
+  IMAGE_CONTEXT: .${IMAGE_FOLDER}/3.13
+  IMAGE_DOCKERFILE: ${IMAGE_CONTEXT}/Dockerfile
+  IMAGE_TAG: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
+
+jobs:
+  push:
+    name: Build and push NoSQL 19.5-ce image
+
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+    
+      - name: Check Out Repo 
+        uses: actions/checkout@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: ${IMAGE_CONTEXT}
+          file: ${IMAGE_DOCKERFILE}
+          push: true
+          tags: ${IMAGE_TAG}
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
