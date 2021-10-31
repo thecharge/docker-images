@@ -16,7 +16,7 @@ env:
   IMAGE_DOCKERFILE: ${IMAGE_CONTEXT}/Dockerfile
   IMAGE_TAG: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
 
-defaults:
+jobs:
   push:
     name: Build and push Alpine base
 
