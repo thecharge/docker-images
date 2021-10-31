@@ -17,8 +17,8 @@ ENV HTTPS_PROXY=${HTTPS_PROXY}
 ENV FTP_PROXY=${FTP_PROXY}
 ENV NO_PROXY=${NO_PROXY}
 
-ADD ./status.sh /status.sh
-ADD ./motd /etc/motd
+COPY ./status.sh /status.sh
+COPY ./motd /etc/motd
 
 RUN apk upgrade --update-cache --available && sync && \
     apk add --no-cache\
