@@ -4,7 +4,9 @@ on:
     branches:
       - main
     paths:
-      - base/alpine/3.13
+      - base/alpine/3.13/Dockerfile
+      - base/alpine/3.13/status.sh
+      - base/alpine/3.13/motd
       - .github/workflows/alpine-linux.yaml
     workflow_dispatch:
 
