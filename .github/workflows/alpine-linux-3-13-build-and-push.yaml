@@ -21,7 +21,7 @@ jobs:
     name: Build and push NoSQL 19.5-ce image
 
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
+    # if: github.event_name == 'push'
 
     steps:
     
