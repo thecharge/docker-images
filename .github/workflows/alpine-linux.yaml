@@ -14,7 +14,6 @@ env:
   IMAGE_TAG_VERSION: 3.13
   IMAGE_CONTEXT: .${IMAGE_FOLDER}/3.13
   IMAGE_DOCKERFILE: ${IMAGE_CONTEXT}/Dockerfile
-  IMAGE_TAG: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
 
 jobs:
   push:
@@ -45,7 +44,7 @@ jobs:
           context: $IMAGE_CONTEXT
           file: $IMAGE_DOCKERFILE
           push: ${{ github.ref == 'refs/heads/main' }}
-          tags: $IMAGE_TAG
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
