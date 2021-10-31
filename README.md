@@ -18,12 +18,13 @@ Image EOL: TBD
 ### How to use this image
 Use like you would any other image:
 1. Via docker pull
-```
+
+```console
 docker pull thecharge/alpine:3.13
 ```
 
 2. In separate dockerfile:
-```
+```dockerfile
 # Base arguments
 # base registry, if oulled from such
 ARG BASE_REGISTRY=
@@ -51,9 +52,8 @@ ENTRYPOINT ["mysql"]
 
 ### Alpine 3.13, Python 3.10
 [![Build and push alpine Python 3.10 base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-python.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-python.yaml)
-```
-docker pull thecharge/python:3.10-alpine
-```
+
+
 ### Releases and EOL:
 Releases: https://www.python.org/downloads/
 Python 3.10 will be supperted until 2026 Oct.
@@ -62,17 +62,18 @@ Image EOL: TBD
 ### How to use this image
 Use like you would any other image:
 1. Via docker pull
-```
+
+```console
 docker pull thecharge/python:3.10-alpine
 ```
 
 2. In separate dockerfile:
 
-```
+```dockerfile
 # Base arguments
 # base registry, if oulled from such
 ARG BASE_REGISTRY=
-ARG BASE_IMAGE=hecharge/python
+ARG BASE_IMAGE=thecharge/python
 ARG BASE_TAG=3.10-alpine
 
 FROM ${BASE_REGISTRY}${BASE_IMAGE}:${BASE_TAG}
