@@ -5,7 +5,7 @@ on:
       - main
     paths:
       - base/alpine/3.13
-      - .github/workflows/build-and-push-base-images.yaml
+      - .github/workflows/alpine-linux.yaml
     workflow_dispatch:
 
 env:
@@ -16,9 +16,9 @@ env:
   IMAGE_DOCKERFILE: ${IMAGE_CONTEXT}/Dockerfile
   IMAGE_TAG: ${{ secrets.DOCKER_HUB_USERNAME }}/${IMAGE}:${IMAGE_TAG_VERSION}
 
-jobs:
+defaults:
   push:
-    name: Build and push NoSQL 19.5-ce image
+    name: Build and push Alpine base
 
     runs-on: ubuntu-latest
     # if: github.event_name == 'push'
@@ -44,8 +44,8 @@ jobs:
         with:
           context: ${IMAGE_CONTEXT}
           file: ${IMAGE_DOCKERFILE}
-          push: true
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${IMAGE_TAG}
 
-      # - name: Image digest
-      #   run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
