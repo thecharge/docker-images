@@ -29,7 +29,7 @@ docker pull thecharge/alpine:3.13
 2. In separate dockerfile:
 ```dockerfile
 # Base arguments
-# base registry, if oulled from such
+# base registry, if pulled from such
 ARG BASE_REGISTRY=
 ARG BASE_IMAGE=thecharge/alpine
 ARG BASE_TAG=3.13
@@ -77,7 +77,7 @@ docker pull thecharge/python:3.10-alpine
 
 ```dockerfile
 # Base arguments
-# base registry, if oulled from such
+# base registry, if pulled from such
 ARG BASE_REGISTRY=
 ARG BASE_IMAGE=thecharge/python
 ARG BASE_TAG=3.10-alpine
