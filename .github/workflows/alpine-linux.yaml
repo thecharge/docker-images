@@ -1,5 +1,8 @@
 name: Build and push alpine base image
 on:
+  schedule:
+    # monthly update
+    - cron:  '0 0 1 * *'
   push:
     branches:
       - main
