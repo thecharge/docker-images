@@ -41,8 +41,8 @@ RUN apk add --no-cache\
     echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' \
     >> /etc/profile
 
-COPY hardening.sh hardening.sh
-RUN chmod +x hardening.sh && ./hardening.sh && rm -f hardening.sh
+# COPY hardening.sh hardening.sh
+# RUN chmod +x hardening.sh && ./hardening.sh && rm -f hardening.sh
 
 
 HEALTHCHECK NONE
