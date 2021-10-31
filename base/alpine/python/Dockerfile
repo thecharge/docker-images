@@ -90,7 +90,8 @@ RUN cd /usr/local/bin && \
     ln -s 2to3-3 2to3 && \
     ln -s pip${BASE_PYTHON_VERSION_CLI} pip3 || true && \
     ln -s pip3 pip || true && \
-    echo '/usr/local/lib' > /etc/ld.so.conf
+    echo '/usr/local/lib' > /etc/ld.so.conf && \
+    /usr/local/bin/python${BASE_PYTHON_VERSION_CLI} -m pip install --upgrade pip
 
 RUN groupadd -g 1001 python && \
     useradd -r -u 1001 -m -s /sbin/nologin -g python python

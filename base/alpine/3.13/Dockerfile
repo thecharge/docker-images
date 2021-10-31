@@ -20,7 +20,8 @@ ENV NO_PROXY=${NO_PROXY}
 ADD ./status.sh /status.sh
 ADD ./motd /etc/motd
 
-RUN apk add --no-cache\
+RUN apk upgrade --update-cache --available && sync && \
+    apk add --no-cache\
         bzip2-dev \
         duo_unix \
         libffi-dev \
