@@ -21,10 +21,10 @@ ENV HTTPS_PROXY=${HTTPS_PROXY}
 ENV FTP_PROXY=${FTP_PROXY}
 ENV NO_PROXY=${NO_PROXY}
 
-RUN groupadd -g 1001 node && \
-    useradd -r -u 1001 -m -s /sbin/nologin -g node node && \
-    chown node:0 ${HOME} && \
-    chmod g=u ${HOME} &&
+RUN groupadd -g 1001 python && \
+    useradd -r -u 1001 -m -s /sbin/nologin -g python python
+
+USER 1001
 
 COPY --from=base /usr/local/bin /usr/local/bin
 COPY --from=base /usr/local/include /usr/local/include
