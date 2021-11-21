@@ -9,7 +9,7 @@
 ## Images
 ***
 ### Alpine 3.13
-(https://img.shields.io/docker/pulls/thecharge/alpine.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/thecharge/alpine.svg)
 [![Build and push alpine base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-linux.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-linux.yaml)
 
 ### Releases and EOL:
@@ -56,7 +56,7 @@ ENTRYPOINT ["mysql"]
 
 ***
 ### Alpine 3.13, Python 3.10
-(https://img.shields.io/docker/pulls/thecharge/python.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/thecharge/python.svg)
 [![Build and push alpine Python 3.10 base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-python.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-python.yaml)
 
 
@@ -108,7 +108,7 @@ CMD ["app/app.py"]
 
 ***
 ### Alpine 3.13, Node 16.13.0
-(https://img.shields.io/docker/pulls/thecharge/node.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/thecharge/node.svg)
 [![Build and push alpine Node 16.13.0 base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-node.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-node.yaml)
 
 
