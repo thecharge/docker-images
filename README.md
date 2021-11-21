@@ -102,3 +102,52 @@ RUN pip install -r requirements.txt
 ENTRYPOINT ["python"]
 CMD ["app/app.py"]
 ```
+
+
+***
+### Alpine 3.13, Node 16.13.0
+[![Build and push alpine Node 16.13.0 base image](https://github.com/thecharge/docker-images/actions/workflows/alpine-node.yaml/badge.svg)](https://github.com/thecharge/docker-images/actions/workflows/alpine-node.yaml)
+
+
+### Releases and EOL:
+Releases: https://nodejs.org/en/about/releases/
+
+Node 16 will be supperted  at least until 2023 Apr.
+
+Image EOL: TBD
+
+### How to use this image
+Use like you would any other image:
+1. Via docker pull
+
+```console
+docker pull thecharge/node:16.13.0-alpine
+```
+
+2. In separate dockerfile:
+
+```dockerfile
+# Base arguments
+# base registry, if pulled from such
+ARG BASE_REGISTRY=
+ARG BASE_IMAGE=thecharge/node
+ARG BASE_TAG=16.13.0-alpine
+
+FROM ${BASE_REGISTRY}${BASE_IMAGE}:${BASE_TAG}
+
+# on your build pipelinie if you use corporate proxy
+ARG HTTP_PROXY
+ARG HTTPS_PROXY
+ARG FTP_PROXY
+ARG NO_PROXY
+
+# proxy settings
+ENV HTTP_PROXY=${HTTP_PROXY}
+ENV HTTPS_PROXY=${HTTPS_PROXY}
+ENV FTP_PROXY=${FTP_PROXY}
+ENV NO_PROXY=${NO_PROXY}
+WORKDIR /app
+COPY . ./
+RUN npm install
+CMD [ "node", "server.js" ]
+```

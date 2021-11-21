@@ -14,7 +14,7 @@ on:
 
 jobs:
   push:
-    name: Build and push Alpine base
+    name: Build and push Alpine Python base
 
     runs-on: ubuntu-latest
     # if: github.event_name == 'push'
