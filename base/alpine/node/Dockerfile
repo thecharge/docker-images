@@ -1,7 +1,7 @@
 ARG BASE_REGISTRY=
 ARG BASE_IMAGE=thecharge/alpine
 ARG BASE_TAG=3.13
-FROM node:16.13.0 as base
+FROM node:16-alpine3.12 as base
 
 # image begins
 FROM ${BASE_REGISTRY}${BASE_IMAGE}:${BASE_TAG}
@@ -21,11 +21,9 @@ ENV HTTPS_PROXY=${HTTPS_PROXY}
 ENV FTP_PROXY=${FTP_PROXY}
 ENV NO_PROXY=${NO_PROXY}
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod 755 /usr/local/bin/entrypoint.sh
 
-RUN groupadd -g 1001 python && \
-    useradd -r -u 1001 -m -s /sbin/nologin -g python python
+RUN groupadd -g 1001 ${USER} && \
+    useradd -r -u 1001 -m -s /sbin/nologin -g ${USER} ${USER}
 
 USER 1001
 
@@ -40,7 +38,5 @@ COPY --from=base /opt /opt
 WORKDIR ${HOME}
 USER 1001
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
-CMD ["node"]
 
 HEALTHCHECK NONE
