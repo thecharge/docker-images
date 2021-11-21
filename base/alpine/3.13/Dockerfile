@@ -10,6 +10,12 @@ ARG HTTPS_PROXY
 ARG FTP_PROXY
 ARG NO_PROXY
 
+# GIT
+ARG GIT_VERSION=2.34.0
+ARG GIT_VERSION_FULL=git-${GIT_VERSION}
+ARG GIT_VERSION_FULL_ARCHIVE=git-${GIT_VERSION}.tar.gz
+ARG GIT_VERSION_URL=https://git.kernel.org/pub/scm/git/git.git/snapshot/${GIT_VERSION_FULL_ARCHIVE}
+ARG GIT_INSTALL_FOLDER=/tmp
 
 # proxy settings
 ENV HTTP_PROXY=${HTTP_PROXY}
@@ -27,8 +33,8 @@ RUN apk upgrade --update-cache --available && sync && \
         libffi-dev \
         libuuid \
         xz-dev \
-        git \
         gcc \
+        # perl-extutils-makemaker \
         g++ \
         make \
         wget \
@@ -43,12 +49,19 @@ RUN apk upgrade --update-cache --available && sync && \
         libtool \
         sqlite \
         expat-dev \
+        gettext-dev \
         shadow \
         findutils \
         sqlite-dev \
         openssl-dev \
         curl-dev \
-        curl &&\
+        git \
+        asciidoc \
+        xmlto \
+        perl-dev \
+        zlib-dev \
+        git \
+        curl && \
     chmod +x /status.sh && \
     echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' \
     >> /etc/profile
