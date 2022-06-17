@@ -44,7 +44,7 @@ jobs:
 
       - name: Build and push
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           context: ./base/alpine/3.13/
           file: ./base/alpine/3.13/Dockerfile
